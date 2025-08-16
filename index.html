@@ -59,10 +59,10 @@
           <img src="assets/images/Profil.jpeg" alt="Elvis, der Schamane" class="profile-img" />
           <div class="text">
             <p>
-              Elvis ist in Pucallpa groß geworden, wurde von seinem Großvater aufgezogen, da sein Vater im Bürgerkrieg starb und seine Mutter ?. Sein Großvater – ein erfahrener Schamane – begann ihn
-              bereits im Alter von 16 Jahren auszubilden. Seit seinem 18. Lebensjahr reiste viel entlang des Amazonas und sammelt wertvolle Erfahrungen im Dschungel. Seit über 25 Jahren praktiziert er
-              Ayahuasca-Medizin und leitet Rituale für Einheimische und Besucher – hin und wieder reist er dafür auch ins Ausland. Seit .. lebt er mit seiner Partnerin Mathilde, und ihren 7 Kindern in
-              der Community ... 100km flussaufwärts von Iquitos und setzt sich für die community ein.
+              Elvis ist in Pucallpa groß geworden, wurde von seinem Großvater aufgezogen, da sein Vater und seine Mutter im Bürgerkrieg starben. Sein Großvater – ein erfahrener Schamane – begann ihn
+              bereits im Alter von 16 Jahren auszubilden. Seit seinem 18. Lebensjahr reiste er viel entlang des Amazonas und sammelt wertvolle Erfahrungen im Dschungel. Seit über 25 Jahren praktiziert
+              er Ayahuasca-Medizin in den verschiedenen Dörfern zwischen Pucallpa und Iquitos und leitet Rituale für Einheimische und Besucher – hin und wieder reist er dafür auch ins Ausland. Er lebt
+              nun mit seiner Partnerin Mathilde und ihren Kindern in der Community ... 100km flussaufwärts von Iquitos und setzt sich für die Community ein.
             </p>
             <!-- <p>Sein umfangreiches Wissen als Schamane und seine positive Ausstrahlung haben ihn zu einer hochgeschätzten Persönlichkeit entlang des Amazonas gemacht.</p> -->
           </div>
@@ -395,19 +395,21 @@ Seit seinem 18. Lebensjahr reist er entlang des Amazonas und sammelt wertvolle E
       <section id="kontakt">
         <h2>Kontakt</h2>
         <p>Für Verfügbarkeitsanfragen und weitere Informationen kontaktiere Sie Elvis auf englisch oder spanisch über WhatsApp:</p>
-        <form id="contact-form" action="/send-whatsapp" method="POST">
-          <!-- Honeypot-Feld (unsichtbar für echte Nutzer) -->
-          <input type="text" name="website" class="hp-field" autocomplete="off" />
 
-          <!-- reines Captcha-Bild -->
+        <form id="captcha-form">
           <label for="captcha">Bitte gib den Text aus dem Bild ein:</label><br />
-          <img src="/captcha.png" alt="CAPTCHA" /><br />
-          <input type="text" name="captcha" id="captcha" required />
-
-          <button type="submit" class="whatsapp-button">WhatsApp Kontakt</button>
+          <img src="/captcha/captcha.php" border="0" title="Sicherheitscode" id="captcha-image" />
+          <button type="button" onclick="reloadCaptcha()">&#x21bb;</button><br />
+          <input type="text" name="sicherheitscode" id="sicherheitscode" size="5" required />
+          <button type="submit" class="submit-button">Captcha prüfen</button>
         </form>
+
+        <div id="whatsapp-link-container" style="display: none">
+          <p>Super! Hier ist der WhatsApp-Link und die Telefonnummer:</p>
+          <p><strong>+1234567890</strong></p>
+          <a href="https://wa.me/1234567890?text=Hallo%2C%20ich%20habe%20eine%20Frage..." target="_blank" class="whatsapp-button"> WhatsApp Kontakt </a>
+        </div>
       </section>
-      <!--  <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-button">WhatsApp Kontakt</a> -->
     </main>
 
     <!-- Modal für allgemeine Galerie -->

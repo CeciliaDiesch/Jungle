@@ -46,23 +46,13 @@ header nav {
 
 /* Titel am Fuß des Headers */
 .header-content {
+  align-self: center;
+  justify-self: center;
   position: absolute;
-  bottom: 50px;
-  /* Abstand vom unteren Rand, passe nach Wunsch an */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 25%;
   z-index: 2;
-  padding-top: 0;
-  /* entferne das alte padding */
   text-align: center;
 }
-
-/* .header-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding-top: 20vh;
-} */
 
 header h1 {
   font-size: 3em;
@@ -469,7 +459,6 @@ section h2::after {
   /* rechtsbündig im Karten-Layout */
 }
 
-
 .reviews-carousel {
   display: flex;
   gap: 20px;
@@ -520,17 +509,13 @@ section h2::after {
 
 /* präzise Links/Rechts-Positionierung */
 .prev-review {
-  left: -20px;
+  left: -8px;
   /* etwas links neben dem Container */
 }
 
 .next-review {
-  right: -20px;
+  right: -8px;
   /* etwas rechts neben dem Container */
-}
-
-.review-nav:hover {
-  background: rgba(44, 62, 80, 0.9);
 }
 
 .reviewer {
@@ -631,7 +616,6 @@ section h2::after {
   display: none;
 }
 
-
 /* Footer */
 footer {
   background: #2c3e50;
@@ -650,10 +634,7 @@ footer {
   width: 100%;
   height: 100%;
   align-items: center;
-  /* vertikal zentrieren */
   justify-content: center;
-  /* horizontal zentrieren */
-
   /* damit bei sehr großen Bildern/Videos noch gescrollt werden kann */
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.9);
@@ -709,46 +690,71 @@ footer {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Responsive Anpassungen */
-/* @media (max-width: 768px) {
-  header h1 {
-    font-size: 2em;
-  }
-
-  header p {
-    font-size: 1em;
-  }
-
-  nav ul li {
-    margin: 0 10px;
-  }
-
-  .content-flex {
-    flex-direction: column;
-  }
-} */
 /* ==============================
    Responsive Media Queries
    (für Bildschirmbreiten von 320px bis 2100px)
    ============================== */
 
+/* max 1000px */
+@media screen and (max-width: 1000px) {
+
+  /* a) die alten im Nav verstecken */
+  nav ul li.language-switcher {
+    display: none !important;
+  }
+
+  /* b) die neuen im Header zeigen */
+  .header-flags {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    justify-content: flex-start;
+    gap: 1rem;
+    z-index: 1000;
+    max-width: 50%;
+  }
+
+  /* Größere Icons */
+  .header-flags img {
+    width: 40px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .header-flags img:hover {
+    transform: scale(1.1);
+  }
+}
+
 /* 320px – 400px */
-@media (min-width: 320px) and (max-width: 400px) {
+@media (min-width: 300px) and (max-width: 400px) {
+
+  .header-content {
+    bottom: 15%;
+  }
+
+  .header-flags img {
+    width: 30px;
+    height: 21px;
+    margin-top: -12px;
+  }
+
+  .sound-icon {
+    width: 20px;
+    height: 20px;
+  }
+
   html {
     font-size: 14px;
   }
 
-  header {
-    height: 16vh;
-  }
-
-  .header-content {
-    bottom: 90px;
-  }
-
   header h1 {
-    line-height: 20px;
-    font-size: 1.2em;
+    line-height: 1.2;
+    font-size: 1.9em;
+    margin: 8px;
   }
 
   header p {
@@ -970,7 +976,6 @@ footer {
     transition: background 0.3s;
   }
 
-
   .nav-links li a:hover {
     background: rgba(0, 0, 0, 0.1);
   }
@@ -992,11 +997,6 @@ footer {
 
   header {
     height: 30vh;
-  }
-
-  .header-content {
-    top: 10px;
-    bottom: auto;
   }
 
   header h1 {
@@ -1036,45 +1036,6 @@ footer {
     padding: 24px;
   }
 }
-
-/* max 1000px */
-@media screen and (max-width: 1000px) {
-
-  /* a) die alten im Nav verstecken */
-  nav ul li.language-switcher {
-    display: none !important;
-  }
-
-  /* b) die neuen im Header zeigen */
-  .header-flags {
-    display: flex;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 100%;
-    /* über die ganze Breite */
-    padding: 0.5rem 1rem;
-    /* etwas Innenabstand */
-    justify-content: flex-start;
-    gap: 1rem;
-    z-index: 1000;
-  }
-
-  /* Größere Icons */
-  .header-flags img {
-    width: 40px;
-    height: 28px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .header-flags img:hover {
-    transform: scale(1.1);
-  }
-}
-
-
-
 
 /* 1000px – 2100px */
 @media (min-width: 1000px) and (max-width: 2100px) {
@@ -1121,5 +1082,39 @@ footer {
   .review {
     flex: 0 0 380px;
     padding: 26px;
+  }
+}
+
+/* max-height 500px */
+@media (max-height: 500px) {
+
+  header {
+    height: 40vh;
+  }
+
+  header h1 {
+    font-size: 2.0em;
+    margin-bottom: 0;
+  }
+
+  .header-content {
+    bottom: 15%;
+  }
+
+  section {
+    padding: 16px 30px;
+  }
+
+  section h2 {
+    margin-bottom: 20px;
+  }
+
+  .header-flags img {
+    width: 30px;
+    height: 21px;
+  }
+
+  .header-flags {
+    left: 0;
   }
 }
