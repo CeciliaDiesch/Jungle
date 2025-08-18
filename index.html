@@ -15,8 +15,9 @@
     <!-- Parallax Header mit Hintergrundbild (Drohnenaufnahme des Amazonas) -->
     <header id="header">
       <div class="header-flags">
-        <img src="assets/icons/gb.svg" alt="English" onclick="switchLanguage('en')" />
-        <img src="assets/icons/es.svg" alt="Español" onclick="switchLanguage('es')" />
+        <img id="sound-toggle" src="assets/icons/nosound.png" alt="Sound aus" class="sound-icon" />
+        <img src="assets/icons/gb.svg" alt="English" onclick="switchLanguage('en')" class="flag-icon" />
+        <img src="assets/icons/es.svg" alt="Español" onclick="switchLanguage('es')" class="flag-icon" />
       </div>
       <button class="nav-toggle" aria-label="Menu öffnen">&#9776;</button>
 
@@ -48,7 +49,6 @@
           </li>
         </ul>
       </nav>
-      <img id="sound-toggle" src="assets/icons/nosound.png" alt="Sound aus" class="sound-icon" />
     </header>
 
     <main>
@@ -405,9 +405,9 @@ Seit seinem 18. Lebensjahr reist er entlang des Amazonas und sammelt wertvolle E
         </form>
 
         <div id="whatsapp-link-container" style="display: none">
-          <p>Super! Hier ist der WhatsApp-Link und die Telefonnummer:</p>
-          <p><strong>+1234567890</strong></p>
-          <a href="https://wa.me/1234567890?text=Hallo%2C%20ich%20habe%20eine%20Frage..." target="_blank" class="whatsapp-button"> WhatsApp Kontakt </a>
+          <p>Wunderbar, hier ist der WhatsApp-Link und die Telefonnummer:</p>
+          <p><strong>+51 916192872</strong></p>
+          <a href="https://wa.me/51916192872?text=Hallo%2C%20ich%20habe%20eine%20Frage..." target="_blank" class="whatsapp-button"> WhatsApp Kontakt </a>
         </div>
       </section>
     </main>
@@ -440,7 +440,11 @@ Seit seinem 18. Lebensjahr reist er entlang des Amazonas und sammelt wertvolle E
     </div>
 
     <footer>
-      <p>&copy; 2025 Dschungel Touren mit Elvis - Alle Rechte vorbehalten</p>
+      <p>&copy; 2025 Jungle Tour with Elvis - All rights reserved</p>
+      <div class="legal-links">
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="legal_notice.html">Legal Notice</a>
+      </div>
     </footer>
 
     <!-- Hintergrund-Ambient Sound (selbst erstellt) -->

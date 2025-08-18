@@ -12,14 +12,17 @@ body {
   background: #fff;
 }
 
-.header-flags {
+.flag-icon {
   display: none;
 }
 
 /* Header mit Parallax-Hintergrund */
 header {
   position: relative;
-  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 35vh;
   color: #fff;
 }
@@ -67,6 +70,30 @@ header p {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+.header-flags {
+  display: flex;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  padding: 0.5rem 1rem;
+  justify-content: flex-start;
+  gap: 1rem;
+  z-index: 1000;
+  max-width: 50%;
+}
+
+/* Größere Icons */
+.header-flags img {
+  width: 40px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.header-flags img:hover {
+  transform: scale(1.1);
+}
+
 /* Der language-switcher sitzt ganz rechts */
 nav ul li.language-switcher {
   position: absolute;
@@ -95,13 +122,8 @@ nav ul li.language-switcher {
 
 /* Sound-Icon */
 .sound-icon {
-  position: absolute;
-  top: 5px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  z-index: 100;
+  width: 30px !important;
+  height: 30px !important;
   background: transparent !important;
   border: none;
 }
@@ -554,18 +576,21 @@ section h2::after {
 }
 
 /* Formular-Container */
-#contact-form {
+#captcha-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 24px auto;
   background: #fff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
 }
 
 /* Labels */
-#contact-form label {
+#captcha-form label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
@@ -573,8 +598,8 @@ section h2::after {
 }
 
 /* Input-Feld */
-#contact-form input[type="text"]#captcha {
-  width: 100%;
+#captcha-form input {
+  width: 172px;
   padding: 10px 12px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -583,7 +608,34 @@ section h2::after {
 }
 
 /* CAPTCHA-Bild */
-#contact-form img {
+#captcha-form img {
+  width: 172px;
+  display: block;
+  margin: 0 auto 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+/* CAPTCHA-Bild */
+#captcha-form button {
+  width: 12%;
+  padding: 4px;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #ddd;
+}
+
+#captcha-form button:hover {
+  background: rgb(201, 208, 198);
+}
+
+.submit-button {
+  width: 172px !important;
+  padding: 12px !important;
   display: block;
   margin: 0 auto 15px;
   border: 2px solid #ddd;
@@ -591,7 +643,7 @@ section h2::after {
 }
 
 /* WhatsApp-Button anpassen */
-#contact-form .whatsapp-button {
+#captcha-form .whatsapp-button {
   display: block;
   width: 100%;
   text-align: center;
@@ -606,7 +658,7 @@ section h2::after {
   text-decoration: none;
 }
 
-#contact-form .whatsapp-button:hover {
+#captcha-form .whatsapp-button:hover {
   background: #1ebe5b;
 }
 
@@ -622,6 +674,17 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px 0;
+}
+
+.legal-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 300;
+}
+
+.legal-links a:hover {
+  text-decoration: underline;
 }
 
 /* Modal (gemeinsam) */
@@ -704,36 +767,26 @@ footer {
   }
 
   /* b) die neuen im Header zeigen */
-  .header-flags {
+
+  .flag-icon {
     display: flex;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.5rem 1rem;
-    justify-content: flex-start;
-    gap: 1rem;
-    z-index: 1000;
-    max-width: 50%;
-  }
-
-  /* Größere Icons */
-  .header-flags img {
-    width: 40px;
-    height: 28px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .header-flags img:hover {
-    transform: scale(1.1);
   }
 }
 
 /* 320px – 400px */
 @media (min-width: 300px) and (max-width: 400px) {
 
+  header {
+    height: 25vh;
+  }
+
   .header-content {
-    bottom: 15%;
+    bottom: 10%;
+    text-align: center;
+  }
+
+  .header-flags {
+    top: 0.8rem;
   }
 
   .header-flags img {
@@ -743,8 +796,9 @@ footer {
   }
 
   .sound-icon {
-    width: 20px;
-    height: 20px;
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: -8px;
   }
 
   html {
@@ -804,6 +858,31 @@ footer {
 
   header p {
     font-size: 1em;
+  }
+
+  header {
+    height: 25vh;
+  }
+
+  .header-content {
+    bottom: 10%;
+    text-align: center;
+  }
+
+  .header-flags {
+    top: 0.8rem;
+  }
+
+  .header-flags img {
+    width: 30px;
+    height: 21px;
+    margin-top: -12px;
+  }
+
+  .sound-icon {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: -8px;
   }
 
   nav ul li {
@@ -1098,7 +1177,8 @@ footer {
   }
 
   .header-content {
-    bottom: 15%;
+    bottom: 10%;
+    text-align: center;
   }
 
   section {
@@ -1112,9 +1192,5 @@ footer {
   .header-flags img {
     width: 30px;
     height: 21px;
-  }
-
-  .header-flags {
-    left: 0;
   }
 }
